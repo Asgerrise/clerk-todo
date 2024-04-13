@@ -1,0 +1,11 @@
+.base-select {
+  border: 1px solid var(--color-primary-light);
+  border-radius: var(--border-radius-sm);
+  padding: var(--space-sm);
+  flex: 1;
+
+  &__wrapper {
+    display: flex;
+    flex-direction: column;
+  }
+}

@@ -1,5 +1,10 @@
-import { createApp } from 'vue'
-import './style.css'
-import App from './App.vue'
+import { createApp } from 'vue';
+import App from './App.vue';
+import { addIcons, OhVueIcon } from 'oh-vue-icons';
+import { FaChevronDown, HiDocumentText, BiListCheck } from 'oh-vue-icons/icons';
+import { createPinia } from 'pinia';
 
-createApp(App).mount('#app')
+const pinia = createPinia();
+addIcons(FaChevronDown, HiDocumentText, BiListCheck);
+
+createApp(App).use(pinia).component('Icon', OhVueIcon).mount('#app');

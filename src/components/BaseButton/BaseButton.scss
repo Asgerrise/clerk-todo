@@ -1,0 +1,21 @@
+.base-button {
+  display: block;
+  width: 100%;
+  background-color: var(--color-primary);
+  color: var(--color-white);
+  border: none;
+  border-radius: var(--border-radius-sm);
+  transition: 0.15s ease-in-out;
+  min-height: 4.2rem;
+  min-width: 10rem;
+  cursor: pointer;
+
+  &:not(:disabled):hover {
+    opacity: 0.8;
+  }
+
+  &:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+}

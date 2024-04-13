@@ -1,0 +1,13 @@
+.todos-controls {
+  margin-top: auto;
+  display: grid;
+  align-items: stretch;
+  grid-template-columns: 1fr 10rem 10rem;
+  gap: var(--space-sm);
+
+  &__select {
+    border: 1px solid var(--color-primary-light);
+    border-radius: var(--border-radius-sm);
+    padding: var(--space-sm);
+  }
+}

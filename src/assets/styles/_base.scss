@@ -1,0 +1,20 @@
+@layer reset, base;
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,500;1,400;1,500&display=swap');
+
+@layer base {
+  html {
+    font-family: var(--font-roboto);
+    font-size: 62.5%;
+    color: var(--color-black);
+  }
+
+  body {
+    font-size: var(--font-size-bs);
+  }
+
+  h1 {
+    font-size: var(--font-size-lg);
+    font-weight: 500;
+  }
+}

@@ -1,0 +1,27 @@
+.todos {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 80rem;
+  min-height: 40rem;
+  border-radius: var(--border-radius-bs);
+  background-color: var(--color-primary-lighter);
+  padding: var(--space-lg);
+  box-shadow: var(--shadow-bs);
+
+  &__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 2px solid var(--color-primary-light);
+    padding-bottom: var(--space-sm);
+    margin-bottom: var(--space-lg);
+  }
+
+  &__no-content {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}

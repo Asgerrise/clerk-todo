@@ -1,0 +1,35 @@
+:root {
+  // Typography
+  --font-roboto: 'Roboto', sans-serif;
+  --font-size-sm: 1.2rem;
+  --font-size-md: 1.4rem;
+  --font-size-bs: 1.6rem;
+  --font-size-lg: 2rem;
+
+  // Colors
+  --color-primary: hsla(230, 84%, 62%, 1);
+  --color-secondary: hsla(200, 84%, 62%, 1);
+  --color-white: hsla(0, 0%, 100%, 1);
+  --color-black: hsla(0, 0%, 13%, 1);
+  --color-red: hsla(353, 95%, 58%, 1);
+  --color-green: hsla(150, 95%, 40%, 1);
+  --color-orange: hsla(28, 95%, 58%, 1);
+
+  --color-primary-light: hsla(230, 84%, 90%, 1);
+  --color-primary-lighter: hsla(230, 84%, 98%, 1);
+  --color-border: hsla(0, 0%, 93%, 1);
+
+  // Spacing
+  --space-xs: 0.4rem;
+  --space-sm: 0.8rem;
+  --space-md: 1.2rem;
+  --space-lg: 1.6rem;
+  --space-xl: 3rem;
+
+  // Border
+  --border-radius-sm: 0.4rem;
+  --border-radius-bs: 0.8rem;
+
+  // Shadow
+  --shadow-bs: 0.5rem 0.5rem 2rem 0.1rem hsla(0, 0%, 0%, 0.08);
+}
