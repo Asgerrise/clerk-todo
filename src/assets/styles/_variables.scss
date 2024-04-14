@@ -8,7 +8,7 @@
 
   // Colors
   --color-primary: hsla(230, 84%, 62%, 1);
-  --color-secondary: hsla(200, 84%, 62%, 1);
+  --color-secondary: hsla(28, 70%, 56%, 1);
   --color-white: hsla(0, 0%, 100%, 1);
   --color-black: hsla(0, 0%, 13%, 1);
   --color-red: hsla(353, 95%, 58%, 1);
@@ -16,7 +16,8 @@
   --color-orange: hsla(28, 95%, 58%, 1);
 
   --color-primary-light: hsla(230, 84%, 90%, 1);
-  --color-primary-lighter: hsla(230, 84%, 98%, 1);
+  --color-primary-lighter: hsla(230, 84%, 99%, 1);
+  --color-secondary-light: hsla(28, 70%, 98%, 1);
   --color-border: hsla(0, 0%, 93%, 1);
 
   // Spacing
@@ -29,7 +30,9 @@
   // Border
   --border-radius-sm: 0.4rem;
   --border-radius-bs: 0.8rem;
+  --border-radius-lg: 1.2rem;
 
   // Shadow
+  --shadow-sm: 0.2rem 0.2rem 0.5rem 0.1rem hsla(0, 0%, 0%, 0.08);
   --shadow-bs: 0.5rem 0.5rem 2rem 0.1rem hsla(0, 0%, 0%, 0.08);
 }

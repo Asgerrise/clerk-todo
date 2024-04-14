@@ -4,15 +4,21 @@ import { Todo } from '@/types';
 
 export const useTodosStore = defineStore('todos', () => {
   const todos = ref<Todo[]>([]);
+  const selectedTodo = ref<Todo | null>(null);
 
   const completedTodos = computed(() =>
     todos.value.filter(todo => todo.completed),
   );
+
   const incompletedTodos = computed(() =>
     todos.value
       .filter(todo => !todo.completed)
       .sort((a, b) => Number(b.priority.value) - Number(a.priority.value)),
   );
+
+  const setSelectedTodo = (todo: Todo | null) => {
+    selectedTodo.value = todo;
+  };
 
   /**
    * Creates a new todo. If [todo.parentId] is defined,
@@ -57,7 +63,6 @@ export const useTodosStore = defineStore('todos', () => {
   const updateTodo = (item: Partial<Todo>) => {
     // If the todo has a parent, update it in the parent's subtasks array
     if (item.parentId) {
-      console.log(item);
       const parent = todos.value.find(todo => todo.id === item.parentId);
       if (parent) {
         parent.subtasks = parent.subtasks
@@ -97,8 +102,10 @@ export const useTodosStore = defineStore('todos', () => {
 
   return {
     todos,
+    selectedTodo,
     completedTodos,
     incompletedTodos,
+    setSelectedTodo,
     createTodo,
     deleteTodo,
     updateTodo,

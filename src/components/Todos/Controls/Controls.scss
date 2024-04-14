@@ -4,10 +4,14 @@
   align-items: stretch;
   grid-template-columns: 1fr 10rem 10rem;
   gap: var(--space-sm);
+  border-top: 2px solid var(--color-border);
+  padding-top: var(--space-lg);
 
-  &__select {
-    border: 1px solid var(--color-primary-light);
-    border-radius: var(--border-radius-sm);
-    padding: var(--space-sm);
+  @media screen and (max-width: 560px) {
+    grid-template-columns: 1fr 1fr;
+
+    .base-input__wrapper {
+      grid-column: 1 / -1;
+    }
   }
 }

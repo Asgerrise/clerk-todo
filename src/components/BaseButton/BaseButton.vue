@@ -1,6 +1,19 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+type Props = {
+  layout?: 'default' | 'icon' | 'icon-danger';
+};
+
+withDefaults(defineProps<Props>(), {
+  layout: 'default',
+});
+</script>
 <template>
-  <button class="base-button" @click="$emit('click')">
+  <button
+    class="base-button"
+    :class="`base-button--${layout.toUpperCase()}`"
+    @click="$emit('click')"
+    @click.stop="$emit('click:stop')"
+  >
     <slot />
   </button>
 </template>

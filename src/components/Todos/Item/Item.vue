@@ -1,8 +1,9 @@
 <script setup lang="ts">
-import TodosItemBody from '@/components/Todos/Item/Body/Body.vue';
+import BaseButton from '@/components/BaseButton/BaseButton.vue';
+import TodosList from '@/components/Todos/List/List.vue';
 import { useTodosStore } from '@/store';
 import { Todo } from '@/types';
-import { ref } from 'vue';
+import { storeToRefs } from 'pinia';
 
 type Props = {
   item: Todo;
@@ -11,34 +12,25 @@ type Props = {
 defineOptions({
   name: 'TodosItem',
 });
-const props = defineProps<Props>();
+defineProps<Props>();
 
-const { updateTodo } = useTodosStore();
-
-const expanded = ref(false);
-
-const setExpanded = () => {
-  if (props.item.parentId) {
-    return;
-  }
-
-  expanded.value = !expanded.value;
-};
+const { selectedTodo } = storeToRefs(useTodosStore());
+const { updateTodo, setSelectedTodo, deleteTodo } = useTodosStore();
 </script>
 <template>
   <li
     class="todos-item"
     :class="[
       item.completed && 'todos-item--CHECKED',
-      expanded && 'todos-item--EXPANDED',
       item.parentId && 'todos-item--CHILD',
     ]"
   >
     <div
+      role="button"
       class="todos-item__header"
-      :tabindex="item.parentId ? -1 : 0"
-      @keyup.enter="setExpanded"
-      @click="setExpanded"
+      tabindex="0"
+      @keyup.enter="setSelectedTodo(item.id === selectedTodo?.id ? null : item)"
+      @click="setSelectedTodo(item.id === selectedTodo?.id ? null : item)"
     >
       <button
         class="todos-item__check"
@@ -57,13 +49,9 @@ const setExpanded = () => {
           >{{ item.title }}
           <Icon
             v-if="item.notes"
+            title="This task has notes"
             class="todos-item__icon"
             name="hi-document-text"
-          />
-          <Icon
-            v-if="item.subtasks && item.subtasks.length > 0"
-            class="todos-item__icon"
-            name="bi-list-check"
           />
         </span>
         <span v-if="item.subtitle" class="todos-item__subtitle">
@@ -75,16 +63,18 @@ const setExpanded = () => {
           >{{ item.priority.label }}</span
         >
       </div>
-      <Icon
-        v-if="!item.parentId"
-        class="todos-item__chevron"
-        name="fa-chevron-down"
-      />
+      <BaseButton
+        class="todos-item__delete"
+        layout="icon-danger"
+        @click:stop="deleteTodo(item)"
+      >
+        <Icon name="px-trash" />
+      </BaseButton>
     </div>
-
-    <Transition name="slide-fade">
-      <TodosItemBody v-if="expanded" :item="item" />
-    </Transition>
+    <TodosList
+      v-if="item.subtasks && item.subtasks.length > 0"
+      :items="item.subtasks"
+    />
   </li>
 </template>
 

@@ -1,9 +1,33 @@
-# Vue 3 + TypeScript + Vite
+# Clerk Todo App
 
-This template should help get you started developing with Vue 3 and TypeScript in Vite. The template uses Vue 3 `<script setup>` SFCs, check out the [script setup docs](https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup) to learn more.
+Welcome to my Todo App.
 
-## Recommended Setup
+The purpose of this application is to have a simple and easy-to-use interface to write down and manage tasks. Within the application you are able to create, update and delete tasks. The tasks will be saved in your browser cache for future use.
 
-- [VS Code](https://code.visualstudio.com/) + [Vue - Official](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (previously Volar) and disable Vetur
+## Tech
 
-- Use [vue-tsc](https://github.com/vuejs/language-tools/tree/master/packages/tsc) for performing the same type checking from the command line, or for generating d.ts files for SFCs.
+The main stack utilizes:
+
+- [Vue 3](https://vuejs.org/) (Composition API)
+- [Typescript](https://www.typescriptlang.org/)
+- [SASS](https://sass-lang.com/)
+- [Pinia](https://pinia.vuejs.org/)
+- [Vite](https://vitejs.dev/)
+
+## Development setup
+
+This project uses [pnpm](https://pnpm.io/) as package manager. If you don't have it installed, go to their website to find the installation guide for your OS.
+
+If you want to use another package manager, feel free, as there are no scripts in the project depending on pnpm.
+
+To get started on this project, run the following commands:
+
+```bash
+# Install dependencies
+pnpm install
+
+# Run a local webserver
+pnpm dev
+```
+
+A simple setup of eslint + prettier is included.

@@ -19,14 +19,35 @@ const { completedTodos, incompletedTodos } = storeToRefs(useTodosStore());
 
 const shownTodos = computed(() => {
   if (props.items) {
-    return props.items.sort((a, b) => b.priority.value - a.priority.value);
+    const completed = props.items.filter(item => item.completed);
+    const incompleted = props.items
+      .filter(item => !item.completed)
+      .sort((a, b) => Number(b.priority.value) - Number(a.priority.value));
+
+    return [...incompleted, ...completed];
   } else {
     return [...incompletedTodos.value, ...completedTodos.value];
   }
 });
+
+// Necessary for transitions to work with positioned elements
+const onBeforeLeave = (el: HTMLElement) => {
+  const { marginLeft, marginTop, width, height } = window.getComputedStyle(el);
+  el.style.left = `${el.offsetLeft - parseFloat(marginLeft)}px`;
+  el.style.top = `${el.offsetTop - parseFloat(marginTop)}px`;
+  el.style.width = width;
+  el.style.height = height;
+};
 </script>
 <template>
-  <TransitionGroup name="list" tag="ul" role="list" class="todos-list">
+  <TransitionGroup
+    name="list"
+    tag="ul"
+    role="list"
+    class="todos-list"
+    :class="[items && 'todos-list--NESTED']"
+    @before-leave="el => onBeforeLeave(el as HTMLElement)"
+  >
     <TodosItem v-for="item in shownTodos" :key="item.id" :item="item" />
   </TransitionGroup>
 </template>

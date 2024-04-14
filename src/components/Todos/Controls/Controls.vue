@@ -50,7 +50,7 @@ const onCreate = () => {
       name="title"
       :placeholder="placeholder || 'What needs to be done?'"
     />
-    <BaseSelect v-model="priority" :options="priorityOptions" />
+    <BaseSelect v-model="priority" :options="priorityOptions" name="priority" />
     <BaseButton type="submit" :disabled="isSubmitDisabled"> Add </BaseButton>
   </form>
 </template>

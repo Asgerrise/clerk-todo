@@ -18,4 +18,25 @@
     opacity: 0.5;
     cursor: not-allowed;
   }
+
+  &--ICON,
+  &--ICON-DANGER {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: unset;
+    min-width: unset;
+    height: 3.5rem;
+    width: 3.5rem;
+  }
+
+  &--ICON-DANGER {
+    color: var(--color-red);
+    background-color: transparent;
+
+    &:hover {
+      background-color: var(--color-red);
+      color: var(--color-white);
+    }
+  }
 }

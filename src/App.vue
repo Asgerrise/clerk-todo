@@ -18,5 +18,9 @@ import Todos from '@/components/Todos/Todos.vue';
   min-height: 100vh;
   min-height: 100dvh;
   padding: var(--space-md);
+
+  @media screen and (max-width: 560px) {
+    padding: 0;
+  }
 }
 </style>
