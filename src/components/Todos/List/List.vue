@@ -15,7 +15,8 @@ defineOptions({
 
 const props = defineProps<Props>();
 
-const { completedTodos, incompletedTodos } = storeToRefs(useTodosStore());
+const { completedTodos, incompletedTodos, todos } =
+  storeToRefs(useTodosStore());
 
 const shownTodos = computed(() => {
   if (props.items) {
@@ -48,6 +49,9 @@ const onBeforeLeave = (el: HTMLElement) => {
     :class="[items && 'todos-list--NESTED']"
     @before-leave="el => onBeforeLeave(el as HTMLElement)"
   >
+    <div v-if="!todos.length && !items" class="todos-list__no-content">
+      <p>You currently have no todos. Add one!</p>
+    </div>
     <TodosItem v-for="item in shownTodos" :key="item.id" :item="item" />
   </TransitionGroup>
 </template>

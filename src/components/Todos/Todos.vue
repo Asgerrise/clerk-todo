@@ -5,17 +5,14 @@ import TodosModal from '@/components/Todos/Modal/Modal.vue';
 import { storeToRefs } from 'pinia';
 import { useTodosStore } from '@/store';
 
-const { todos, selectedTodo } = storeToRefs(useTodosStore());
+const { selectedTodo } = storeToRefs(useTodosStore());
 </script>
 <template>
   <div class="todos">
     <div class="todos__header">
       <h1>Todos</h1>
     </div>
-    <div v-if="!todos.length" class="todos__no-content">
-      <p>You currently have no todos. Add one!</p>
-    </div>
-    <TodosList v-else />
+    <TodosList />
     <TodosControls />
     <Transition name="slide-fade">
       <TodosModal v-if="selectedTodo" />
