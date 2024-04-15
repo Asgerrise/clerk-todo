@@ -7,6 +7,7 @@
   overflow-y: auto;
 
   &--NESTED {
+    overflow-y: visible;
     padding-left: var(--space-xl);
     padding-bottom: var(--space-sm);
     margin-top: var(--space-sm);

@@ -66,6 +66,8 @@ const { updateTodo, setSelectedTodo, deleteTodo } = useTodosStore();
       <BaseButton
         class="todos-item__delete"
         layout="icon-danger"
+        title="Delete task"
+        aria-label="Delete task"
         @click:stop="deleteTodo(item)"
       >
         <Icon name="px-trash" />
